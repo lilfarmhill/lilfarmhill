@@ -1,0 +1,43 @@
+/* styles/globals.css */
+@import 'tailwindcss';
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'SF Pro Text', Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url('/fonts/sflight.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'SF Pro Text';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/sf.otf') format('opentype');
+}
+
+/* Optional: Set default font styles for the body */
+.font-ultralight {
+  font-family: 'SF Pro Display', Arial, Helvetica, sans-serif;
+  font-weight: 200;
+}
