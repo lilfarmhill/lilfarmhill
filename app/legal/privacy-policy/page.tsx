@@ -1,16 +1,14 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy - Lil Farm Hill',
+  description: 'Privacy Policy for Lil Farm Hill, a nature-based outdoor learning program in Upper Ojai, California.',
+};
 
 export default function PrivacyPolicy() {
   return (
-    <>
-      <Head>
-        <title>Privacy Policy - Lil Farm Hill</title>
-      </Head>
+    <div className="py-10">
       <main className='prose mx-auto p-8'>
-      <Link href='/'>
-         ← Back to Home
-        </Link>
         <h1 className='my-8 text-4xl font-ultralight'>Privacy Policy</h1>
         <p>Last Updated: 1/30/2025<br /><br />
 
@@ -28,9 +26,9 @@ Derivative Data: Information our servers automatically collect when you access t
 
 Financial Data: Financial information, such as data related to your payment method (e.g., valid credit card number, card brand, expiration date) that we may collect when you purchase services within the App.
 
-Mobile Device Access: We may request access or permission to certain features from your mobile device, including your contacts, camera, and other features. If you wish to change our access or permissions, you may do so in your device’s settings.
+Mobile Device Access: We may request access or permission to certain features from your mobile device, including your contacts, camera, and other features. If you wish to change our access or permissions, you may do so in your device's settings.
 
-Push Notifications: We may request to send you push notifications regarding your account or the App. If you wish to opt-out from receiving these types of communications, you may turn them off in your device’s settings.
+Push Notifications: We may request to send you push notifications regarding your account or the App. If you wish to opt-out from receiving these types of communications, you may turn them off in your device's settings.
 
 3. Use of Your Information
 
@@ -72,6 +70,6 @@ If you have questions or comments about this Privacy Policy, please contact us a
 lilfarmhill@lilfarmhill.com
 </p>
       </main>
-    </>
+    </div>
   );
 }

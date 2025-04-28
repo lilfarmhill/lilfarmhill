@@ -1,16 +1,14 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Terms of Service - Lil Farm Hill',
+  description: 'Terms of Service for Lil Farm Hill, a nature-based outdoor learning program in Upper Ojai, California.',
+};
 
 export default function TermsOfService() {
   return (
-    <>
-      <Head>
-        <title>Terms of Service - Lil Farm Hill</title>
-      </Head>
+    <div className="py-10">
       <main className='prose mx-auto p-8'>
-        <Link href='/'>
-         ← Back to Home
-        </Link>
         <h1 className='my-8 text-4xl font-ultralight'>Terms of Service</h1>
         <p>
 
@@ -73,6 +71,6 @@ We may modify these Terms from time to time. We will notify you of any changes b
 
 If you have any questions about these Terms, please contact us at [contact information].</p>
       </main>
-    </>
+    </div>
   );
 }

@@ -3,41 +3,155 @@
 
 
 :root {
-  --background: #ffffff;
+  --background: #fafafa;
   --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --heading-color: #707070;
+  --body-color: rgba(112, 112, 112, 0.8);
 }
 
 body {
-  color: var(--foreground);
+  color: var(--body-color);
   background: var(--background);
-  font-family: 'SF Pro Text', Arial, Helvetica, sans-serif;
+  font-family: var(--font-sora), system-ui, sans-serif;
 }
 
-@font-face {
-  font-family: 'SF Pro Display';
-  font-style: normal;
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+  font-family: var(--font-sora), system-ui, sans-serif;
+}
+
+/* Utility classes for font weights */
+.font-thin {
   font-weight: 100;
-  font-display: swap;
-  src: url('/fonts/sflight.otf') format('opentype');
 }
 
-@font-face {
-  font-family: 'SF Pro Text';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/sf.otf') format('opentype');
-}
-
-/* Optional: Set default font styles for the body */
-.font-ultralight {
-  font-family: 'SF Pro Display', Arial, Helvetica, sans-serif;
+.font-extralight {
   font-weight: 200;
 }
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+
+/* --- Add these styles for react-day-picker customization --- */
+
+/* Ensure the container allows the calendar to grow */
+.rdp {
+  margin: 0 !important; /* Override default margin */
+}
+
+/* Style the container for each day cell */
+.rdp-cell {
+  padding: 0 !important;
+  /* text-align: left !important; */ /* You might adjust this */
+}
+
+/* Critical: Set the height and vertical alignment for day cells */
+.rdp-day {
+  height: 8rem !important; /* Adjust height as needed to fit slots */
+  width: 100% !important; /* Make day fill the cell width */
+  padding: 0 !important; /* Remove default padding */
+  margin: 0 !important; /* Remove default margin */
+  /* Align content (day number and slots div) to the top */
+  vertical-align: top !important;
+  /* Set position relative if you need absolute positioning inside */
+  position: relative !important;
+}
+
+/* Ensure the button inside the day cell fills the container */
+.rdp-button {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 2px !important; /* Small padding inside the button */
+  border-radius: 0 !important; /* Remove default rounding if needed */
+  /* Reset default button styles that might interfere */
+  border: none !important;
+  background: none !important;
+  font-weight: normal !important;
+  line-height: normal !important;
+  text-align: left !important; /* Align day number to the left */
+}
+.rdp-button:focus {
+  outline: none !important; /* Remove focus outline if desired */
+  box-shadow: none !important;
+}
+
+
+/* Remove default DayPicker selection style if selecting slots directly */
+.rdp-day_selected, .rdp-day_selected:focus-visible, .rdp-day_selected:hover {
+  background-color: inherit !important;
+  color: inherit !important; /* Let your slot styling handle colors */
+  border: none !important;
+  font-weight: normal !important;
+}
+
+/* Style for days outside the current month/view */
+.rdp-day_outside {
+  background-color: #f9fafb !important; /* Light background for outside days */
+  color: #9ca3af !important; /* Dim the text color */
+}
+.rdp-day_outside .rdp-button { /* Ensure button inside outside day inherits dimming */
+  color: #9ca3af !important;
+}
+
+/* Style the header row (Mon, Tue, etc.) */
+.rdp-head_cell {
+  text-align: center !important;
+  font-weight: 600 !important;
+  padding-bottom: 0.5rem !important;
+  font-size: 0.75rem !important; /* text-xs */
+  color: #4b5563 !important; /* gray-600 */
+}
+
+/* Ensure table fills width */
+.rdp-month table, .rdp-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  max-width: 100% !important; /* Ensure it doesn't overflow */
+}
+
+/* Hide default caption if using custom header */
+.rdp-caption {
+   display: none !important;
+}
+
+/* Style for the custom div containing day number + slots */
+.day-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 2px; /* Small padding inside the wrapper */
+}
+
+/* Style for the container holding the slots */
+.day-slots-container {
+  flex-grow: 1; /* Allow slot container to fill remaining space */
+  overflow-y: auto; /* Enable scroll if slots overflow */
+  margin-top: 2px; /* Space between day number and slots */
+}
+
+/* Custom scrollbar for slots container (optional) */
+.day-slots-container::-webkit-scrollbar { width: 4px; }
+.day-slots-container::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 2px; }
