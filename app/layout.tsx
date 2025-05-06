@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image'; // Import the Next.js Image component
 import type { Metadata } from 'next';
 import { Sora } from 'next/font/google'; // Import Sora font
-
+import StripeProvider from '@/app/stripe-provider';
 // Initialize the Sora font with the weights you want to use
 const sora = Sora({ 
   subsets: ['latin'],
@@ -22,11 +22,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={sora.variable}>
       <body className={`flex flex-col min-h-screen font-sans ${sora.className}`}>
-        <nav className="bg-white shadow-sm sticky top-0 z-50"> {/* Added sticky, top-0, z-50 for sticky nav */}
-          <div className="container mx-auto px-4"> {/* Removed fixed height to allow for logo height */}
+        <nav className="bg-white shadow-sm top-0 z-50"> {/* Added sticky, top-0, z-50 for sticky nav */}
+          <div className="container mx-auto px-6"> {/* Removed fixed height to allow for logo height */}
 
             {/* --- Desktop Navigation (hidden on small screens, flex on medium+) --- */}
-            <div className="hidden md:flex items-center justify-between h-52"> {/* Added h-32 to accommodate h-24 logo with padding */}
+            <div className="hidden md:flex items-center justify-between h-48"> {/* Added h-32 to accommodate h-24 logo with padding */}
 
               {/* Left Navigation Links */}
               <div className="flex items-center space-x-6 lg:space-x-8"> {/* Adjusted spacing */}
@@ -44,9 +44,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <Image
                     src="/logo.png" // Path relative to public folder
                     alt="Lil Farm Hill Logo"
-                    width={40}      // Specify width (adjust as needed)
-                    height={40}     // Specify height (adjust as needed)
-                    className="h-48 w-auto" // Tailwind class to control rendered size, maintains aspect ratio
+                    width={36}      // Specify width (adjust as needed)
+                    height={36}     // Specify height (adjust as needed)
+                    className="h-36 w-auto" // Tailwind class to control rendered size, maintains aspect ratio
                   />
                 </Link>
               </div>
@@ -76,7 +76,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                     height={30}
                     className="h-24 w-auto" // Same height as desktop for consistency
                   />
-                 <span className="text-lg font-light text-gray-900">Lil Farm Hill</span>
               </Link>
 
               {/* Mobile Menu Button (Placeholder) */}
@@ -90,7 +89,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </nav>
 
         <main className="flex-grow">
-          {children}
+        <StripeProvider>{children}</StripeProvider>
         </main>
 
         <footer className="bg-white py-6 border-t border-gray-100">
