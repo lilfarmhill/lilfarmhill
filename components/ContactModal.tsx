@@ -25,7 +25,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   return (
     // Backdrop: Fixed position, full screen, semi-transparent background, high z-index
     <div
-      className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4 transition-opacity duration-300"
+      className="fixed inset-0 bg-black/50  flex items-center justify-center z-50 p-4 transition-opacity duration-300"
       onClick={handleBackdropClick} // Close on backdrop click
     >
       {/* Modal Content Container */}

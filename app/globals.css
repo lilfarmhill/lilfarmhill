@@ -155,3 +155,45 @@ h1, h2, h3, h4, h5, h6 {
 /* Custom scrollbar for slots container (optional) */
 .day-slots-container::-webkit-scrollbar { width: 4px; }
 .day-slots-container::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 2px; }
+
+/* Add these animations for the mobile menu */
+
+/* Fade in animation for the overlay */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+/* Optional: Add a smooth transition for menu items */
+.menu-item-appear {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.menu-item-appear-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Ensure the fixed menu doesn't cause layout issues */
+body.overflow-hidden {
+  overflow: hidden;
+}
+
+/* Use a visible focus outline for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid rgba(74, 222, 128, 0.6);
+  outline-offset: 2px;
+}
